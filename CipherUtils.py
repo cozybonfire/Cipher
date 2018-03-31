@@ -19,13 +19,23 @@ def alphaexp(n):
     print(vec)
 
 def binexp(n):
+    n_str = str(n)
     vec = []
-    exponent = 1000
-    for i in range(0, exponent + 1):
-        if(n - 2**exponent >= 0):
-            vec.append([2**exponent, exponent])
-            n = n - 2**exponent
+    exponent = 0
+    
+    # takes log(n) steps to find exponent
+    while n - 2 ** exponent > 0:
+        exponent = exponent + 1
+
+	# determine which powers of 2 comprise n
+    while exponent >= 0:
+        if(n - 2 ** exponent >= 0):
+            vec.append([2 ** exponent, exponent])
+            n = n - 2 ** exponent
         exponent = exponent - 1
+
+	# print results
+    print(n_str + " expanded into powers of 2:\n")
     for p in vec:
         if p == vec[-1]:
             print(str(p[0]) + " [2^" + str(p[1]) + "]", end="")
