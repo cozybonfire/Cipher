@@ -47,10 +47,9 @@ def binexp(n):
     print(n_str + " expanded into powers of 2:\n")
     for p in vec:
         if p == vec[-1]:
-            print(str(p[0]) + " [2^" + str(p[1]) + "]", end="")
+            print(str(p[0]) + " [2^" + str(p[1]) + "]")
         else:
             print(str(p[0]) + " [2^" + str(p[1]) + "]", end=" + ")
-    print()
 
 def divmod(n, d):
     div = (int)(n / d)
@@ -61,14 +60,29 @@ def pad(s):
     return "\n" + str(s) + "\n"
 
 def quadres(n):
-    s = set() 
-    for i in range(1, n + 1):
-        s.add(i**2 % n)
-        print(str(i) + ":\t" + str(i**2 % n))
+    s = set()
+    vec = []
+    print("Quadratic resides mod " + str(n) + ":")
+    print("[Note that this function may exclude 0, which can be "
+		  "considered a quadratic\n residue by default.]\n") 
+    for i in range(1, n):
+        s.add(i ** 2 % n)
+        vec.append([i, i ** 2 % n])
     s = sorted(s)
 
-    print()
-    print(str((int)((n + 1) / 2)) + " quadratic residues total:")	
+    print(str((int)((n - 1) / 2)) + " quadratic residues total:")	
     for res in s:
         print(str(res), end=" ")
-    print("")
+
+    print("\n\nList of x^2 mod " + str(n) + ":")
+    curr_str = ""
+    char_count = 0
+    for p in vec:
+        curr_str = "[" + str(p[0]) + ":" + str(p[1]) + "]"
+        char_count += len(curr_str) + 1
+        if char_count > 80:		# TODO: account for user's terminal size
+            print("\n\n" + curr_str, end=" ")
+            char_count = len(curr_str) + 1 
+        else:
+            print(curr_str, end=" ")
+    print()
