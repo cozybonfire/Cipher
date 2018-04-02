@@ -1,4 +1,4 @@
-# All of Crypto's utility functions
+# All of Cipher's utility functions
 
 def alphaexp(n):
     n_str = str(n)
@@ -32,18 +32,15 @@ def binexp(n):
     vec = []
     exponent = 0
 
-    # takes log(n) steps to find exponent
     while n - 2 ** exponent > 0:
         exponent = exponent + 1
 
-    # determine which powers of 2 comprise n
     while exponent >= 0:
         if(n - 2 ** exponent >= 0):
             vec.append([2 ** exponent, exponent])
             n = n - 2 ** exponent
         exponent = exponent - 1
 
-    # print results
     print(n_str + " expanded into powers of 2:\n")
     for p in vec:
         if p == vec[-1]:
