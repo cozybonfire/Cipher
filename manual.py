@@ -11,6 +11,7 @@ USAGE_DIVMOD   = "Usage: divmod [int] [int]"
 USAGE_GCD      = "Usage: gcd [int] [int]"
 USAGE_HELP     = "Usage: help [command]"
 USAGE_INFO     = "Usage: info"
+USAGE_IS_PRIME = "Usage: is_prime [int]"
 USAGE_Q        = "Usage: q (or quit)"
 USAGE_QUADRES  = "Usage: quadres [int]"
 USAGE_QUIT     = "Usage: quit (or just q)"
@@ -19,7 +20,7 @@ VERSION        = "v0.0 (alpha)"
 # List of commands 
 # Update with each new command so it gets printed when the user types "help".
 commands = ["alphaexp", "binexp", "divmod", "gcd", "help", "info", 
-            "quadres", "quit"]
+            "is_prime", "quadres", "quit"]
 
 # Dictionary of command information
 man = {
@@ -40,6 +41,8 @@ man = {
 "info": USAGE_INFO 
     + "\nProvides general information about Cipher."
     + "\nFor assistance with using commands, use \"help\".",
+"is_prime": USAGE_IS_PRIME
+    + "\nReturns True if the integer argument is prime, False otherwise.",
 "license": "MIT License\n"
     + "\nPermission is hereby granted, free of charge, to any person "
     + "obtaining a copy of \nthis software and associated documentation "

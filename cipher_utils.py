@@ -55,8 +55,24 @@ def divmod(n, d):
     mod = n % d
     print("Quotient: " + str(div) + "\tRemainder: " + str(mod))
 
+def is_prime(n):
+    return n in sieve_of_eratosthenes(n)
+
 def pad(s):
     return "\n" + str(s) + "\n"
+
+# Returns a list of primes up to and including n.
+def sieve_of_eratosthenes(n):
+    if n < 2:  return []
+
+    sieve = [i for i in range(2, n + 1)]
+    for i in range(0, len(sieve)):
+        if sieve[i] != 0:
+            for j in range(i + 1, len(sieve)):
+                if sieve[j] % sieve[i] == 0:
+                    sieve[j] = 0
+
+    return [p for p in sieve if p != 0]
 
 def quadres(n):
     s = set()

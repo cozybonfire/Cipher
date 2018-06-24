@@ -15,14 +15,13 @@
 # - ALLOW FOR MATH EXPRESSIONS AS ARGUMENTS TO COMMANDS
 
 import fractions, manual, simpleeval
-from cipher_utils import alphaexp, binexp, divmod, pad, quadres
+from cipher_utils import alphaexp, binexp, divmod, is_prime, pad, quadres
 from manual import man
 
-print("Welcome to Cipher! Type \"help\" to see a list of commands.")
+print("Welcome to Cipher! Type \"help\" to see a list of commands.\n")
 while True:
-    cmd_str = input("\n> ")
+    cmd_str = input("> ")
     cmd = cmd_str.split()
-
     if len(cmd) == 0:
         continue
     print()
@@ -71,6 +70,12 @@ while True:
         else:
             print(man.get(cmd[1], manual.CMD_NOT_RECOGNIZED))
 
+    elif cmd[0] == "is_prime":
+        if len(cmd) != 2 or not cmd[1].isdigit():
+            print(manual.USAGE_IS_PRIME)
+            continue
+        print(is_prime(int(cmd[1])))
+
     elif cmd[0] == "info":
         if len(cmd) > 1:
             print("Odd usage, but I'm going to assume you want info:")
@@ -92,3 +97,4 @@ while True:
             print(simpleeval.simple_eval(cmd_str))
         except (simpleeval.InvalidExpression, KeyError, SyntaxError):
             print(manual.CMD_NOT_RECOGNIZED)
+    print()
