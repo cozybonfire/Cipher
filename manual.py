@@ -1,18 +1,27 @@
+# File:        manual.py
+# Programmer:  Gabriel Ruiz (github.com/cozybonfire)
+# Description: File containing raw data and dictionaries for Cipher.
+
+# Usage constants
 CMD_NOT_RECOGNIZED = "Command or argument not recognized (try \"help\")."
-COPYRIGHT = "(c) 2018 Gabriel Ruiz"
-USAGE_ALPHAEXP = "Usage: alphaexp (int)n"
-USAGE_BINEXP = "Usage: binexp (int)n"
-USAGE_DIVMOD = "Usage: divmod (int)n (int)d"
-USAGE_HELP = "Usage: help [command]"
-USAGE_INFO = "Usage: info"
-USAGE_Q = "Usage: q (or quit)"
-USAGE_QUADRES = "Usage: quadres (int)n"
-USAGE_QUIT = "Usage: quit (or just q)"
-VERSION = "v0.0 (alpha)"
+COPYRIGHT      = "(c) 2018 Gabriel Ruiz"
+USAGE_ALPHAEXP = "Usage: alphaexp [int]"
+USAGE_BINEXP   = "Usage: binexp [int]"
+USAGE_DIVMOD   = "Usage: divmod [int] [int]"
+USAGE_GCD      = "Usage: gcd [int] [int]"
+USAGE_HELP     = "Usage: help [command]"
+USAGE_INFO     = "Usage: info"
+USAGE_Q        = "Usage: q (or quit)"
+USAGE_QUADRES  = "Usage: quadres [int]"
+USAGE_QUIT     = "Usage: quit (or just q)"
+VERSION        = "v0.0 (alpha)"
 
-commands = ["alphaexp", "binexp", "divmod", "help", "info", "quadres", 
-            "quit"]
+# List of commands 
+# Update with each new command so it gets printed when the user types "help".
+commands = ["alphaexp", "binexp", "divmod", "gcd", "help", "info", 
+            "quadres", "quit"]
 
+# Dictionary of command information
 man = {
 "alphaexp": USAGE_ALPHAEXP
     + "\nGiven a number encoded in decimal using addition base 26, decode "
@@ -22,6 +31,9 @@ man = {
 "divmod": USAGE_DIVMOD
     + "\nPrints the result of n / d (integer division, i.e. fraction "
     + "truncated), as well \nas n % d, the remainder.",
+"gcd": USAGE_GCD
+    + "\nComputes the greatest common divisor between two integers, "
+    + "\ni.e. the highest integer that divides both.",
 "help": USAGE_HELP 
     + "\nProvides detailed information on using Cipher's commands."
     + "\nFor program information, use \"info\".",

@@ -1,0 +1,16 @@
+Ideas for features to implement in Cipher:
+
+ - Non-console UI
+ - Jacobi symbol
+ - Legendre symbol
+ - CRT
+ - RSA
+ - Factoring
+ - Quadratic sieve (of Eratosthenes?)
+ - DH key exchange
+ - ElGamal
+ - Elliptic curves
+ - Lattices
+ - LLL algorithm
+ - NTRU
+ - GCD
