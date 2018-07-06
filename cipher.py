@@ -41,7 +41,7 @@ while True:
         if len(cmd) != 2 or not cmd[1].isdigit():
             print(manual.USAGE_BINEXP)
             continue
-        binexp(int(cmd[1]))
+        binexp_util(int(cmd[1]))
 
     elif cmd[0] == "divmod":
         if len(cmd) != 3 or not (cmd[1].isdigit() and cmd[2].isdigit()):
