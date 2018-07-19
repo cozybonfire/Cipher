@@ -3,7 +3,6 @@
 # Description: Main file for Cipher program, containing UI.
 
 # TO ADD A NEW COMMAND:
-# - IMPORT IT FROM CIPHERUTILS
 # - ADD IT TO THE "COMMANDS" LIST
 # - CREATE ITS USAGE DEF
 # - ADD IT TO THE MANUAL
@@ -15,7 +14,7 @@
 # - ALLOW FOR MATH EXPRESSIONS AS ARGUMENTS TO COMMANDS
 
 import fractions, manual, simpleeval
-from cipher_utils import alphaexp, binexp, divmod, is_prime, pad, quadres
+from cipher_utils import *
 from manual import man
 
 print("Welcome to Cipher! Type \"help\" to see a list of commands.\n")
@@ -30,6 +29,12 @@ while True:
         if len(cmd) > 1:
             print("Odd usage, but I'm going to assume you want to quit.")
         break
+
+    elif cmd[0] == "alphaencode":
+        if len(cmd) < 2:
+            print(manual.USAGE_ALPHAENCODE)
+            continue
+        alphaencode(" ".join(cmd[1:]))
 
     elif cmd[0] == "alphaexp":
         if len(cmd) != 2 or not cmd[1].isdigit():
@@ -47,7 +52,7 @@ while True:
         if len(cmd) != 3 or not (cmd[1].isdigit() and cmd[2].isdigit()):
             print(manual.USAGE_DIVMOD)
             continue
-        divmod(True, int(cmd[1]), int(cmd[2]))
+        divmod(int(cmd[1]), int(cmd[2]))
 
     elif cmd[0] == "gcd":
         if len(cmd) != 3 or not (cmd[1].isdigit() and cmd[2].isdigit()):

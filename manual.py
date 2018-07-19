@@ -4,26 +4,36 @@
 
 # Usage constants
 CMD_NOT_RECOGNIZED = "Command or argument not recognized (try \"help\")."
-COPYRIGHT      = "(c) 2018 Gabriel Ruiz"
-USAGE_ALPHAEXP = "Usage: alphaexp [int]"
-USAGE_BINEXP   = "Usage: binexp [int]"
-USAGE_DIVMOD   = "Usage: divmod [int] [int]"
-USAGE_GCD      = "Usage: gcd [int] [int]"
-USAGE_HELP     = "Usage: help [command]"
-USAGE_INFO     = "Usage: info"
-USAGE_IS_PRIME = "Usage: is_prime [int]"
-USAGE_Q        = "Usage: q (or quit)"
-USAGE_QUADRES  = "Usage: quadres [int]"
-USAGE_QUIT     = "Usage: quit (or just q)"
-VERSION        = "v0.0 (alpha)"
+COPYRIGHT          = "(c) 2018 Gabriel Ruiz"
+USAGE_ALPHAENCODE = "Usage: alphaencode [string]"
+USAGE_ALPHAEXP     = "Usage: alphaexp [int]"
+USAGE_BINEXP       = "Usage: binexp [int]"
+USAGE_DIVMOD       = "Usage: divmod [int] [int]"
+USAGE_GCD          = "Usage: gcd [int] [int]"
+USAGE_HELP         = "Usage: help [command]"
+USAGE_INFO         = "Usage: info"
+USAGE_IS_PRIME     = "Usage: is_prime [int]"
+USAGE_Q            = "Usage: q (or quit)"
+USAGE_QUADRES      = "Usage: quadres [int]"
+USAGE_QUIT         = "Usage: quit (or just q)"
+VERSION            = "v0.0 (alpha)"
 
 # List of commands 
 # Update with each new command so it gets printed when the user types "help".
-commands = ["alphaexp", "binexp", "divmod", "gcd", "help", "info", 
-            "is_prime", "quadres", "quit"]
+commands = ["alphaencode", "alphaexp", "binexp", "divmod", "gcd", "help", 
+            "info", "is_prime", "quadres", "quit"]
 
 # Dictionary of command information
 man = {
+"alphaencode": USAGE_ALPHAENCODE
+    + "\nGiven a string to encode, return the numeric version of that "
+    + "string in terms of \nalpha representation. This means that each "
+    + "letter in the string has a value \nbetween 0 and 25, and is "
+    + "multiplied by a power of 26 according to its position \nin the "
+    + "string in order to compile a unique number."
+    + "\n\nNote that in mapping each letter to a value from 0 to 25, "
+    + "there must be no \ndigits in the string. Including any digits will "
+    + "throw an error message.",
 "alphaexp": USAGE_ALPHAEXP
     + "\nGiven a number encoded in decimal using addition base 26, decode "
     + "and print the \nmessage as well as its breakdown.",

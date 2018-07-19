@@ -7,6 +7,24 @@
 
 import math
 
+# Takes a string and converts it to alpha representation, where each 
+# letter is a different power of 26. For example, "PARTY" is encoded as 
+# [PH] (A is 0).
+def alphaencode(s):
+    # TODO: Sanitize input; ensure no digits
+    result = alphaencode_util(s)
+    print(s.upper() + " encodes as: " + str(result)) 
+
+def alphaencode_util(s):
+    s = s.upper()
+    degree = len(s) - 1
+    result = 0
+    for l in s:
+        i = ord(l) - 65
+        result += i * (26 ** degree)
+        degree -= 1
+    return result
+
 def alphaexp(n):
     n_str = str(n)
     vec = []
@@ -61,7 +79,7 @@ def binexp_util(n):
             print(str(p[0]) + " [2^" + str(p[1]) + "]", end=" + ")
 
 def divmod(n, d):
-    div = (int)(n / d) # TODO n // d?
+    div = n // d
     mod = n % d
     print("Quotient: " + str(div) + "\tRemainder: " + str(mod))
 
