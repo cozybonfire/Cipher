@@ -3,11 +3,41 @@ Need to import all modules from Tkinter;
 from tkinter import * # Python 3.0 or higher; Tkinter for lower than 3.0
 
 "Start the root"
-root=Tk()
+main = Tk() # uppercase T in Python 3.0 or higher
 
 "Set the parameters for the root/window"
-root.title("My GUI")    # title of window
-root.geometry("400x500") # size of window
+main.title("My GUI")     # title of window
+main.geometry("400x500") # size of window
 
-"Kickstart the loop" - explained in next video
-root.mainloop()
+"Kickstart the loop" - everything goes above this point
+main.mainloop() # tells Python to keep the window open
+
+Labels, buttons, frames, etc. (objects) are called widgets in Python.
+To add widgets, know this bit of code:
+.grid(row = [number], column = [number], sticky = W)
+sticky indicates which way to put the widget - W for West, on the left
+
+Adding a label:
+Label(main, text="This is my GUI").grid(row=0, column=0, sticky=W)
+
+Adding a button:
+Button(main, text="My Button", width=6, command=speak).grid(row=1, column=0, sticky=W)
+speak is linked to a subroutine - a function.
+These subroutines must be defined before the instantiation of main.
+
+def speak():
+    print("Hi") # prints Hi to the console, not the window
+
+pass is a keyword to simply do nothing in the command. 
+
+A frame is something that groups widgets together in the GUI - it 
+delineates segments within the window with their own rows and columns
+
+Adding a frame:
+GUIFrame = Frame(main) # assigning a frame to a variable
+GUIFrame.grid(row=1, column=0, sticky=W) # now add the frame to the GUI
+
+Now rename main in the call to Button to GUIFrame, which assigns it to 
+exist inside of the GUIFrame according to the GUIFrame's rows and columns.
+
+
