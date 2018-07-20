@@ -1,0 +1,13 @@
+Python: import module Tkinter
+Need to import all modules from Tkinter;
+from tkinter import * # Python 3.0 or higher; Tkinter for lower than 3.0
+
+"Start the root"
+root=Tk()
+
+"Set the parameters for the root/window"
+root.title("My GUI")    # title of window
+root.geometry("400x500") # size of window
+
+"Kickstart the loop" - explained in next video
+root.mainloop()
